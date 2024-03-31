@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/radiostation_nav_graph"
+    app:startDestination="@id/topStationsFragment">
+
+    <fragment
+        android:id="@+id/topStationsFragment"
+        android:name="com.example.radiostationshowcase.ui.TopStationsFragment"
+        android:label="fragment_top_stations"
+        tools:layout="@layout/fragment_top_stations" >
+        <action
+            android:id="@+id/action_topStationsFragment_to_stationDetailsFragment"
+            app:destination="@id/stationDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stationDetailsFragment"
+        android:name="com.example.radiostationshowcase.ui.StationDetailsFragment"
+        android:label="StationDetailsFragment" />
+</navigation>

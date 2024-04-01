@@ -59,4 +59,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51")
     implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
     kapt("androidx.hilt:hilt-navigation-fragment:1.2.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RadioStationShowcase</string>
+    <string name="city_country_name">Herkunft: %1$s (%2$s)</string>
 </resources>

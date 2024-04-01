@@ -1,5 +1,6 @@
 package com.example.radiostationshowcase.domain.repository
 
+import com.example.radiostationshowcase.domain.model.Playable
 import com.example.radiostationshowcase.domain.model.RadioStation
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -14,5 +15,5 @@ interface ApiService {
     suspend fun getRadioStations(): RadioStation
 
     @GET("stations/details")
-    suspend fun getRadioStationDetails(@Query("stationIds") stationId: String): RadioStation?
+    suspend fun getRadioStationDetails(@Query("stationIds") stationId: String): List<Playable>
 }

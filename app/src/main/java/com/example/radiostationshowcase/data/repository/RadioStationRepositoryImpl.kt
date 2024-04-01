@@ -1,6 +1,7 @@
 package com.example.radiostationshowcase.data.repository
 
 import com.example.radiostationshowcase.data.data_source.RetrofitClient.apiService
+import com.example.radiostationshowcase.domain.model.Playable
 import com.example.radiostationshowcase.domain.model.RadioStation
 import com.example.radiostationshowcase.domain.repository.RadioStationRepository
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +14,7 @@ class RadioStationRepositoryImpl() : RadioStationRepository {
         return apiService.getRadioStations()
     }
 
-    override fun getStationById(id: Int): RadioStation {
-        TODO("Not yet implemented")
+    override suspend fun getStationById(id: String): List<Playable> {
+        return apiService.getRadioStationDetails(id)
     }
 }

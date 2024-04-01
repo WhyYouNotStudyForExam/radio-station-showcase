@@ -16,5 +16,7 @@ data class Playable(
     val adParams: String,
     val type: String,
     val seoRelevantIn: List<String>,
-    val blockingInformation: BlockingInformation
+    val blockingInformation: BlockingInformation,
+    val description: String? = null,
+    val homepageUrl: String? = null,
 )

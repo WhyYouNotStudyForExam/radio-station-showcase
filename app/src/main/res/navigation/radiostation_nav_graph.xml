@@ -13,9 +13,13 @@
         <action
             android:id="@+id/action_topStationsFragment_to_stationDetailsFragment"
             app:destination="@id/stationDetailsFragment" />
+        <argument
+            android:name="stationId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/stationDetailsFragment"
         android:name="com.example.radiostationshowcase.ui.StationDetailsFragment"
-        android:label="StationDetailsFragment" />
+        android:label="StationDetailsFragment"
+        tools:layout="@layout/fragment_station_details"/>
 </navigation>

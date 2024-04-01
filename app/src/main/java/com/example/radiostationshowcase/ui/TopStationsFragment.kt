@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.radiostationshowcase.R
@@ -21,6 +22,16 @@ class TopStationsFragment : Fragment(R.layout.fragment_top_stations) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView(view)
         observeRadioStation()
+
+        radioStationsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putString("stationId", it.id)
+            }
+            findNavController().navigate(
+                R.id.action_topStationsFragment_to_stationDetailsFragment,
+                bundle
+            )
+        }
     }
 
     private fun setupRecyclerView(view: View) {

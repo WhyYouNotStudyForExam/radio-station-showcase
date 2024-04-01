@@ -10,7 +10,7 @@ data class Playable(
     val logo300x300: String,
     val logo630x630: String?,
     val name: String,
-    val topics: List<String>,
+    val topics: List<String>?,
     val streams: List<Stream>,
     val hasValidStreams: Boolean,
     val adParams: String,

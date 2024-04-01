@@ -24,8 +24,10 @@ class RadioStationsAdapter(
             nameTextView.text = item.name
             cityNameTextView.text =
                 itemView.context.getString(R.string.city_country_name, item.city, item.country)
-            genreTextView.text = "Genres: " + item.genres?.joinToString(", ")
-            topicsTextView.text = "Themen: " + item.topics?.joinToString(", ")
+            genreTextView.text =
+                itemView.context.getString(R.string.genres_format, item.genres?.joinToString(", "))
+            topicsTextView.text =
+                itemView.context.getString(R.string.topics_format, item.topics?.joinToString(", "))
 
             Glide.with(itemView.context)
                 .load(item.logo300x300)

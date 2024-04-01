@@ -1,4 +1,4 @@
-package com.example.radiostationshowcase.ui
+package com.example.radiostationshowcase.ui.view_models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,17 +14,11 @@ import javax.inject.Inject
 class TopStationsViewModel @Inject constructor(
     private val radioStationRepository: RadioStationRepository
 ) : ViewModel() {
-    private val _title = MutableLiveData<String>()
-    val title: LiveData<String> = _title
     private val _radioStations = MutableLiveData<RadioStation>()
     val radioStations: LiveData<RadioStation> = _radioStations
+
     init {
         getRadioStations()
-        setStationParams()
-    }
-
-    private fun setStationParams() {
-        _title.value = radioStations.value?.title
     }
 
     private fun getRadioStations() = viewModelScope.launch {

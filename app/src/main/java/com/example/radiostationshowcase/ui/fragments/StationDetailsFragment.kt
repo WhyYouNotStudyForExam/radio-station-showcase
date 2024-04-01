@@ -1,4 +1,4 @@
-package com.example.radiostationshowcase.ui
+package com.example.radiostationshowcase.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.radiostationshowcase.R
+import com.example.radiostationshowcase.ui.view_models.StationDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,9 +35,15 @@ class StationDetailsFragment : Fragment(R.layout.fragment_station_details) {
                 }
             }
             view?.findViewById<TextView>(R.id.stationName)?.text = playableItem.name
-            view?.findViewById<TextView>(R.id.genres)?.text = context?.getString(R.string.genres_format, playableItem.genres?.joinToString(", "))
-            view?.findViewById<TextView>(R.id.topics)?.text = context?.getString(R.string.topics_format, playableItem.topics?.joinToString(", "))
-            view?.findViewById<TextView>(R.id.cityCountry)?.text = context?.getString(R.string.city_country_name, playableItem.city, playableItem.country)
+            view?.findViewById<TextView>(R.id.genres)?.text =
+                context?.getString(R.string.genres_format, playableItem.genres?.joinToString(", "))
+            view?.findViewById<TextView>(R.id.topics)?.text =
+                context?.getString(R.string.topics_format, playableItem.topics?.joinToString(", "))
+            view?.findViewById<TextView>(R.id.cityCountry)?.text = context?.getString(
+                R.string.city_country_name,
+                playableItem.city,
+                playableItem.country
+            )
             view?.findViewById<TextView>(R.id.description)?.text = playableItem.description
             view?.findViewById<TextView>(R.id.homepageUrl)?.text = playableItem.homepageUrl
         }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/topStationsFragment"
-        android:name="com.example.radiostationshowcase.ui.TopStationsFragment"
+        android:name="com.example.radiostationshowcase.ui.fragments.TopStationsFragment"
         android:label="fragment_top_stations"
         tools:layout="@layout/fragment_top_stations" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/stationDetailsFragment"
-        android:name="com.example.radiostationshowcase.ui.StationDetailsFragment"
+        android:name="com.example.radiostationshowcase.ui.fragments.StationDetailsFragment"
         android:label="StationDetailsFragment"
         tools:layout="@layout/fragment_station_details"/>
 </navigation>

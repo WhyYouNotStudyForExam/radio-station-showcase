@@ -1,4 +1,4 @@
-package com.example.radiostationshowcase.ui
+package com.example.radiostationshowcase.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.radiostationshowcase.R
 import com.example.radiostationshowcase.adapter.RadioStationsAdapter
+import com.example.radiostationshowcase.ui.view_models.TopStationsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

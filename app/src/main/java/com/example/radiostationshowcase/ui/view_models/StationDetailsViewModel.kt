@@ -1,4 +1,4 @@
-package com.example.radiostationshowcase.ui
+package com.example.radiostationshowcase.ui.view_models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

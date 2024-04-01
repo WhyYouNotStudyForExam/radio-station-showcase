@@ -2,6 +2,7 @@ package com.example.radiostationshowcase.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ class TopStationsFragment : Fragment(R.layout.fragment_top_stations) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView(view)
-        observeRadioStations()
+        observeRadioStation()
     }
 
     private fun setupRecyclerView(view: View) {
@@ -29,9 +30,10 @@ class TopStationsFragment : Fragment(R.layout.fragment_top_stations) {
         recyclerView.adapter = radioStationsAdapter
     }
 
-    private fun observeRadioStations() {
-        viewModel.radioStations.observe(viewLifecycleOwner) { stations ->
-            radioStationsAdapter.updateItems(stations.playables)
+    private fun observeRadioStation() {
+        viewModel.radioStations.observe(viewLifecycleOwner) { station ->
+            view?.findViewById<TextView>(R.id.tvTitle)?.text = station.title
+            radioStationsAdapter.updateItems(station.playables)
         }
     }
 }

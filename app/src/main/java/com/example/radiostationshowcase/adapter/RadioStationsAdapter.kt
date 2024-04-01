@@ -6,16 +6,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.radiostationshowcase.R
+import com.example.radiostationshowcase.domain.model.Playable
 import com.example.radiostationshowcase.domain.model.RadioStation
 
 class RadioStationsAdapter(
-    private var items: List<RadioStation>
+    private var items: List<Playable>
 ) : RecyclerView.Adapter<RadioStationsAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val nameTextView: TextView = view.findViewById(R.id.title)
 
-        fun bind(item: RadioStation) {
-            nameTextView.text = item.title
+        fun bind(item: Playable) {
+            nameTextView.text = item.country
         }
     }
 
@@ -37,7 +38,7 @@ class RadioStationsAdapter(
         holder.bind(items[position])
     }
 
-    fun updateItems(newItems: List<RadioStation>) {
+    fun updateItems(newItems: List<Playable>) {
         items = newItems
         notifyDataSetChanged()
     }

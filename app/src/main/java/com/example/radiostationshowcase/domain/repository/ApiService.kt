@@ -11,7 +11,7 @@ interface ApiService {
     }
 
     @GET("stations/list-by-system-name?systemName=${DEFAULT_SYSTEM_NAME}&count=${DEFAULT_COUNT}")
-    suspend fun getRadioStations(): List<RadioStation>
+    suspend fun getRadioStations(): RadioStation
 
     @GET("stations/details")
     suspend fun getRadioStationDetails(@Query("stationIds") stationId: String): RadioStation?

@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class RadioStationRepositoryImpl() : RadioStationRepository {
-    override fun getStations(): Flow<List<RadioStation>> = flow {
-        emit(apiService.getRadioStations())
-    }.flowOn(Dispatchers.IO)
+    override suspend fun getStations(): RadioStation {
+        return apiService.getRadioStations()
+    }
 
     override fun getStationById(id: Int): RadioStation {
         TODO("Not yet implemented")

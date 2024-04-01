@@ -1,5 +1,6 @@
 package com.example.radiostationshowcase.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,13 +14,12 @@ import javax.inject.Inject
 class TopStationsViewModel @Inject constructor(
     private val radioStationRepository: RadioStationRepository
 ) : ViewModel() {
-    val radioStations = MutableLiveData<List<RadioStation>>()
+    private val _radioStations = MutableLiveData<RadioStation>()
+    val radioStations: LiveData<RadioStation> = _radioStations
     init {
         getRadioStations()
     }
-    fun getRadioStations() = viewModelScope.launch {
-        val response = radioStationRepository.getStations().collect{ stations ->
-            radioStations.postValue(stations)
-        }
+    private fun getRadioStations() = viewModelScope.launch {
+        _radioStations.value = radioStationRepository.getStations()
     }
 }

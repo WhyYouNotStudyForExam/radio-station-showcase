@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.radiostationshowcase.R
 import com.example.radiostationshowcase.adapter.RadioStationsAdapter
@@ -24,12 +25,13 @@ class TopStationsFragment : Fragment(R.layout.fragment_top_stations) {
     private fun setupRecyclerView(view: View) {
         radioStationsAdapter = RadioStationsAdapter(emptyList())
         val recyclerView: RecyclerView = view.findViewById(R.id.rvRadioStations)
+        recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = radioStationsAdapter
     }
 
     private fun observeRadioStations() {
         viewModel.radioStations.observe(viewLifecycleOwner) { stations ->
-            radioStationsAdapter.updateItems(stations)
+            radioStationsAdapter.updateItems(stations.playables)
         }
     }
 }

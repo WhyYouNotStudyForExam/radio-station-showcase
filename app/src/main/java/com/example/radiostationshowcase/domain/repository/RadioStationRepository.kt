@@ -4,7 +4,7 @@ import com.example.radiostationshowcase.domain.model.RadioStation
 import kotlinx.coroutines.flow.Flow
 
 interface RadioStationRepository {
-    fun getStations(): Flow<List<RadioStation>>
+    suspend fun getStations(): RadioStation
 
     fun getStationById(id: Int): RadioStation
 }
